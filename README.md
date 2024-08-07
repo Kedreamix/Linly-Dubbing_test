@@ -2,6 +2,7 @@
 
 <div align="center">
 <h1>Linly-Dubbing WebUI</h1>
+  
 [![madewithlove](https://img.shields.io/badge/made_with-%E2%9D%A4-red?style=for-the-badge&labelColor=orange)](https://github.com/Kedreamix/Linly-Dubbing)
 <img src="docs/linly_logo.png" /><br>
 
@@ -80,7 +81,7 @@
 
 | 原视频                                                       | Linly-Dubbing                                                |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <video src="https://github.com/user-attachments/assets/3d5c8346-3363-43f6-b8a4-80dc08f3eca4"> | <video src="https://github.com/user-attachments/assets/87ac52c1-0d67-4145-810a-d74147051026"> |
+|  <video src="https://github.com/user-attachments/assets/87ac52c1-0d67-4145-810a-d74147051026"> | <video src="https://github.com/user-attachments/assets/3d5c8346-3363-43f6-b8a4-80dc08f3eca4"> |
 
 ---
 
