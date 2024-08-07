@@ -2,7 +2,7 @@
 
 <div align="center">
 <h1>Linly-Dubbing WebUI</h1>
-  
+
 [![madewithlove](https://img.shields.io/badge/made_with-%E2%9D%A4-red?style=for-the-badge&labelColor=orange)](https://github.com/Kedreamix/Linly-Dubbing)
 <img src="docs/linly_logo.png" /><br>
 
@@ -93,7 +93,7 @@
 
 ```bash
 # 下载代码
-git clone https://github.com/your_username/Linly-Dubbing.git --depth 1
+git clone https://github.com/Kedreamix/Linly-Dubbing.git --depth 1
 
 cd Linly-Dubbing
 # 更新子模块 如CosyVoice等
@@ -107,6 +107,14 @@ conda create -n linly_dubbing python=3.10 -y
 conda activate linly_dubbing
 
 cd Linly-Dubbing
+
+pip install torch==2.3.1 torchvision==0.18.1 torchaudio==2.3.1 --index-url https://download.pytorch.org/whl/cu118
+
+# Upgrade pip
+python -m pip install --upgrade pip
+# Change the PyPI source to speed up the installation of packages
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+
 pip install -r requirements.txt
 
 # TTS安装比较复杂，建议单独安装 

@@ -8,16 +8,18 @@
 gradio
 loguru
 yt-dlp
-git+https://github.com/facebookresearch/demucs#egg=demucs
 scipy
-# librosa
-git+https://github.com/m-bain/whisperx.git
 python-dotenv
 openai
 audiostretchy
 
+
+# ASR
+git+https://github.com/m-bain/whisperx.git
+git+https://github.com/facebookresearch/demucs#egg=demucs
 funasr
-googletrans==3.1.0a0
+
+# googletrans
 
 # Qwen
 accelerate
@@ -28,7 +30,6 @@ librosa==0.10.2
 WeTextProcessing==1.0.3
 lightning==2.2.4
 conformer==0.3.2
-lightning==2.2.4
 wget==3.2
 openai-whisper==20231117
 modelscope
