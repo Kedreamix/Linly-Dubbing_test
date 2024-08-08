@@ -10,12 +10,16 @@ sys.path.append('CosyVoice/')
 from cosyvoice.cli.cosyvoice import CosyVoice
 from cosyvoice.utils.file_utils import load_wav
 import torchaudio
+from modelscope import snapshot_download
 model = None
+
+def download_cosyvoice():
+    snapshot_download('iic/CosyVoice-300M', local_dir='models/TTS/CosyVoice-300M')
 
 def init_cosyvoice():
     load_model()
     
-def load_model(model_path="iic/CosyVoice-300M", device='auto'):
+def load_model(model_path="model/TTS/CosyVoice-300M", device='auto'):
     global model
     if model is not None:
         return
@@ -24,6 +28,8 @@ def load_model(model_path="iic/CosyVoice-300M", device='auto'):
         device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     logger.info(f'Loading CoxyVoice model from {model_path}')
     t_start = time.time()
+    if not os.path.exists(model_path):
+        download_cosyvoice()
     model = CosyVoice(model_path)
     t_end = time.time()
     logger.info(f'CoxyVoice model loaded in {t_end - t_start:.2f}s')
@@ -37,7 +43,7 @@ language_map = {
     'Korean': 'ko'
 }
 
-def tts(text, output_path, speaker_wav, model_name="iic/CosyVoice-300M", device='auto', target_langugae='中文'):
+def tts(text, output_path, speaker_wav, model_name="model/TTS/CosyVoice-300M", device='auto', target_langugae='中文'):
     global model
     
     if os.path.exists(output_path):

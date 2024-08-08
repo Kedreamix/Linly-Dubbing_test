@@ -7,7 +7,7 @@ from loguru import logger
 import numpy as np
 
 from .utils import save_wav, save_wav_norm
-from .step041_tts_bytedance import tts as bytedance_tts
+# from .step041_tts_bytedance import tts as bytedance_tts
 from .step042_tts_xtts import tts as xtts_tts
 from .step043_tts_cosyvoice import tts as cosyvoice_tts
 from .step044_tts_edge_tts import tts as edge_tts

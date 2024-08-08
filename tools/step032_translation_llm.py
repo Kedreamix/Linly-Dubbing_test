@@ -15,24 +15,18 @@ model = None
 tokenizer = None
 def init_llm_model(model_name):
     global model, tokenizer
-    if model_name == 'Qwen/Qwen1.5-4B-Chat':
+    if 'Qwen' in model_name:
         from transformers import AutoModelForCausalLM, AutoTokenizer
+        model_path = os.path.join('models/LLM', os.path.basename(model_name))
+        pretrained_path = model_name if not os.path.isdir(model_path) else model_path
+        
         model = AutoModelForCausalLM.from_pretrained(
-            "Qwen/Qwen1.5-4B-Chat",
+            pretrained_path,
             torch_dtype="auto",
             device_map="auto"
         )
-        tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen1.5-4B-Chat")
-        print('Finish Load model')
-    elif model_name == 'Qwen/Qwen1.5-7B-Chat':
-        from transformers import AutoModelForCausalLM, AutoTokenizer
-        model = AutoModelForCausalLM.from_pretrained(
-            "Qwen/Qwen1.5-7B-Chat",
-            torch_dtype="auto",
-            device_map="auto"
-        )
-        tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen1.5-7B-Chat")
-        print('Finish Load model')
+        tokenizer = AutoTokenizer.from_pretrained(pretrained_path)
+        print('Finish Load model', pretrained_path)
 
 def get_necessary_info(info: dict):
     return {
@@ -73,7 +67,7 @@ def summarize(info, transcript, target_language='简体中文'):
                 {'role': 'system', 'content': f'You are a expert in the field of this video. Please summarize the video in JSON format.\n```json\n{{"title": "the title of the video", "summary", "the summary of the video"}}\n```'},
                 {'role': 'user', 'content': full_description+retry_message},
             ]
-            if model_name == 'Qwen/Qwen1.5-4B-Chat' or model_name == 'Qwen/Qwen1.5-7B-Chat':
+            if 'Qwen' in model_name:
                 text = tokenizer.apply_chat_template(
                     messages,
                     tokenize=False,
@@ -123,7 +117,7 @@ def summarize(info, transcript, target_language='简体中文'):
     ]
     while True:
         try:
-            if model_name == 'Qwen/Qwen1.5-4B-Chat' or model_name == 'Qwen/Qwen1.5-7B-Chat':
+            if 'Qwen' in model_name:
                 text = tokenizer.apply_chat_template(
                     messages,
                     tokenize=False,
@@ -288,7 +282,7 @@ def _translate(summary, transcript, target_language='简体中文'):
                                 'content': f'Translate:"{text}"'}]
             # print(messages)
             try:
-                if model_name == 'Qwen/Qwen1.5-4B-Chat' or model_name == 'Qwen/Qwen1.5-7B-Chat':
+                if 'Qwen' in model_name:
                     input_text = tokenizer.apply_chat_template(
                         messages,
                         tokenize=False,

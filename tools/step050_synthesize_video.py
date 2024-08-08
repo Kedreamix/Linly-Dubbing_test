@@ -211,6 +211,6 @@ def synthesize_all_video_under_folder(folder, subtitles=True, speed_up=1.00, fps
 if __name__ == '__main__':
     folder = r'videos/村长台钓加拿大/20240805 英文无字幕 阿里这小子在水城威尼斯发来问候'
     synthesize_all_video_under_folder(folder, subtitles=True, 
-                                      background_music = 'Dehors.mp3', 
+                                      background_music = 'examples/bk_music.mp3', 
                                       watermark_path='docs/linly_watermark.png'
                                       )

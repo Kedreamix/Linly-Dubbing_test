@@ -9,7 +9,7 @@ load_dotenv()
 
             
 
-def transcribe_all_audio_under_folder(folder, asr_method, whisper_model_name: str = 'large', device='auto', batch_size=32, diarization=True, min_speakers=None, max_speakers=None):
+def transcribe_all_audio_under_folder(folder, asr_method, whisper_model_name: str = 'large', device='auto', batch_size=32, diarization=False, min_speakers=None, max_speakers=None):
     transcribe_json = None
     for root, dirs, files in os.walk(folder):
         if 'audio_vocals.wav' in files and 'transcript.json' not in files:
@@ -24,6 +24,6 @@ def transcribe_all_audio_under_folder(folder, asr_method, whisper_model_name: st
     return f'Transcribed all audio under {folder}', transcribe_json
 
 if __name__ == '__main__':
-    transcribe_all_audio_under_folder('WhisperX','videos')
-    # transcribe_all_audio_under_folder('FunASR','videos')    
+    transcribe_all_audio_under_folder('videos_everything', 'WhisperX',)
+    # transcribe_all_audio_under_folder('videos', 'FunASR')    
     

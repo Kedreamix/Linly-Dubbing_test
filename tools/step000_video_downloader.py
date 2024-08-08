@@ -135,4 +135,5 @@ if __name__ == '__main__':
     # url = 'https://www.bilibili.com/video/BV1YQ4y1371P/'
     url = 'https://www.bilibili.com/video/BV1kr421M7vz/' # (英文无字幕) 阿里这小子在水城威尼斯发来问候
     folder_path = 'videos'
+    os.makedirs(folder_path, exist_ok=True)
     download_from_url(url, folder_path)

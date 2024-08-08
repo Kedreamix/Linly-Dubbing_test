@@ -128,10 +128,9 @@ def translate_all_transcript_under_folder(folder, method, target_language):
     return f'Translated all videos under {folder}',summary_json , translate_json
 
 if __name__ == '__main__':
-    translate_all_transcript_under_folder('Qwen' ,
-                                          r'videos/村长台钓加拿大/20240805 英文无字幕 阿里这小子在水城威尼斯发来问候', '简体中文')
-    translate_all_transcript_under_folder('Qwen' ,
-                                          r'videos2', '简体中文')
+    translate_all_transcript_under_folder(
+        r'videos/村长台钓加拿大/20240805 英文无字幕 阿里这小子在水城威尼斯发来问候',
+          'Qwen' , '简体中文')
     # translate_all_transcript_under_folder('OpenAI' ,
     #                                       r'videos/村长台钓加拿大/20240805 英文无字幕 阿里这小子在水城威尼斯发来问候', 
     #                                       '简体中文')

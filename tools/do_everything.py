@@ -12,7 +12,6 @@ from .step040_tts import generate_all_wavs_under_folder
 from .step042_tts_xtts import init_TTS
 from .step043_tts_cosyvoice import init_cosyvoice
 from .step050_synthesize_video import synthesize_all_video_under_folder
-from .step060_genrate_info import generate_all_info_under_folder
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 
@@ -59,7 +58,6 @@ def process_video(info, root_folder, resolution,
         generate_all_wavs_under_folder(folder, method = tts_method, target_language=tts_target_language, voice=voice)
         _, ouput_video = synthesize_all_video_under_folder(folder, subtitles=subtitles, speed_up=speed_up, fps=fps, resolution=target_resolution, 
                                                            background_music=background_music, bgm_volume=bgm_volume, video_volume=video_volume)
-        generate_all_info_under_folder(folder)
         return True, ouput_video
         # except Exception as e:
         #     logger.error(f'Error processing video {info["title"]}: {e}')
@@ -68,7 +66,7 @@ def process_video(info, root_folder, resolution,
 
 def do_everything(root_folder, url, num_videos=5, resolution='1080p',
                   demucs_model='htdemucs_ft', device='auto', shifts=5, 
-                  asr_method='WhisperX', whisper_model='large', batch_size=32, diarization=True, whisper_min_speakers=None, whisper_max_speakers=None, 
+                  asr_method='WhisperX', whisper_model='large', batch_size=32, diarization=False, whisper_min_speakers=None, whisper_max_speakers=None, 
                   translation_method = 'Qwen',translation_target_language='简体中文', 
                   tts_method='xtts', tts_target_language='中文', voice='zh-CN-XiaoxiaoNeural',
                   subtitles=True, speed_up=1.00, fps=30, 
