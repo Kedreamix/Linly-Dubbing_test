@@ -1,3 +1,15 @@
 [submodule "CosyVoice"]
 	path = CosyVoice
 	url = https://github.com/FunAudioLLM/CosyVoice.git
+[submodule "submodules/demucs"]
+	path = submodules/demucs
+	url = https://github.com/facebookresearch/demucs.git
+[submodule "submodules/whisper"]
+	path = submodules/whisper
+	url = https://github.com/openai/whisper.git
+[submodule "submodules/whisperX"]
+	path = submodules/whisperX
+	url = https://github.com/m-bain/whisperX.git
+[submodule "submodules/TTS"]
+	path = submodules/TTS
+	url = https://github.com/coqui-ai/TTS.git
