@@ -12,11 +12,12 @@ scipy
 python-dotenv
 openai
 audiostretchy
-
+modelscope
 
 # ASR
-git+https://github.com/m-bain/whisperx.git
-git+https://github.com/facebookresearch/demucs#egg=demucs
+# git+https://github.com/m-bain/whisperx.git
+# pip install ctranslate2==3.24.0
+# git+https://github.com/facebookresearch/demucs#egg=demucs
 funasr
 
 # googletrans
@@ -28,11 +29,12 @@ accelerate
 HyperPyYAML==1.2.2
 librosa==0.10.2
 WeTextProcessing==1.0.3
-lightning==2.2.4
-conformer==0.3.2
 wget==3.2
-openai-whisper==20231117
+# openai-whisper==20231117
 modelscope
 diffusers==0.27.2
 gdown==5.1.0
 pyarrow
+conformer==0.3.2
+lightning==2.2.4
+ctranslate2==3.24.0
